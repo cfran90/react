@@ -1,0 +1,17 @@
+button, a.btn {
+    display: flex !important;
+    align-items: center;
+}
+
+button i, a.btn i {
+    height: 16px;
+}
+
+.link-group {
+    display:flex;
+    margin-top: 5px;
+}
+
+.link-group a, .link-group button {
+    margin-right: 5px;
+}

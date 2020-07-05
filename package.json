@@ -3,12 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@khanacademy/react-multi-select": "^0.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "memoize-one": "^5.1.1",
+    "moment": "^2.26.0",
+    "polished": "^3.6.4",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-data-table-component": "^6.9.3",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-redux-toastr": "^7.6.5",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.4.1",
+    "react-select": "^3.1.0",
+    "react-toastify": "^6.0.5",
+    "redux": "^4.0.5",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "styled-components": "^5.1.0"
   }
 }
