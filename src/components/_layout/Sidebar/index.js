@@ -113,6 +113,14 @@ export default class SidebarComponent extends Component {
                                         <IconLi>
                                             <i className="mdi mdi-account-circle"></i>
                                         </IconLi>
+                                        <span className="menu-title">Permissão</span>
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={'/permissions/form'} className="nav-link">
+                                        <IconLi>
+                                            <i className="mdi mdi-account-circle"></i>
+                                        </IconLi>
                                         <span className="menu-title">Permissões</span>
                                     </Link>
                                 </li>

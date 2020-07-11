@@ -51,25 +51,13 @@ export default class FormUser extends Component {
         });
     }
 
-    handleOnChangeName = e => {
-        this.setState({
-            userName: e.target.value
-        });
-    }
+    handleChange = event => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState({[nam]: val});
+    };
 
-    handleOnChangeEmail = e => {
-        this.setState({
-            email: e.target.value
-        });
-    }
-
-    handleOnChangePassword = e => {
-        this.setState({
-            password: e.target.value
-        });
-    }
-
-    handleChange(arr) {
+    handleChangeSelect(arr) {
         this.setState({
             groupsSelectCurrentValue: arr
         });
@@ -77,15 +65,15 @@ export default class FormUser extends Component {
 
     handleSave = e => {
         e.preventDefault();
-
+        console.log("handle save")
         const {id} = this.props.match.params;
         let userToSave = {
             name: this.state.userName,
             email: this.state.email,
-            groups: this.state.groupsSelectCurrentValue.map(g => g.id)
+            groups: this.state.groupsSelectCurrentValue.map(g => g.value)
         }
         if (id) {
-            UserService.updateUser(userToSave, () => {
+            UserService.updateUser(id, userToSave, () => {
                 toast.success("Usuário atualizado com sucesso");
                 this.setState({redirect: true});
             });
@@ -122,14 +110,14 @@ export default class FormUser extends Component {
                             <h4 className="card-title">{id ? 'Editar' : 'Criar'} usuário:</h4>
                             <form className="forms-sample" autoComplete="off" onSubmit={this.handleSave}>
                                 <div className="form-group">
-                                    <label htmlFor="name">Nome:</label>
-                                    <input type="text" name="name" placeholder="Nome" className="form-control"
-                                           value={userName} onChange={this.handleOnChangeName}/>
+                                    <label htmlFor="userName">Nome:</label>
+                                    <input type="text" name="userName" placeholder="Nome" className="form-control"
+                                           value={userName} onChange={this.handleChange}/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email">Email:</label>
                                     <input type="text" name="email" placeholder="E-mail" className="form-control"
-                                           value={email} onChange={this.handleOnChangeEmail}/>
+                                           value={email} onChange={this.handleChange}/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="groups">Grupos:</label>
@@ -140,12 +128,12 @@ export default class FormUser extends Component {
                                             placeholder="Grupos"
                                             value={groupsSelectCurrentValue}
                                             isLoading={groupsSelectLoading}
-                                            onChange={newValue => this.handleChange(newValue)} />
+                                            onChange={newValue => this.handleChangeSelect(newValue)} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Senha:</label>
                                     <input type="password" name="password" placeholder="Senha" className="form-control"
-                                           value={password} onChange={this.handleOnChangePassword}/>
+                                           value={password} onChange={this.handleChange}/>
                                 </div>
 
                                 <div className="link-group">

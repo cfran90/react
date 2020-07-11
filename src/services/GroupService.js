@@ -7,6 +7,14 @@ class GroupService extends Service {
         return this.post('/groups', group, callback);
     }
 
+    saveOrRemovePermission(groupId, permissionId, isSave, callback) {
+        let permission = {"permission": permissionId};
+        if (isSave) {
+            return this.post(`/groups/${groupId}/save-permission`, permission, callback);
+        }
+        return this.post(`/groups/${groupId}/remove-permission`, permission, callback);
+    }
+
     updateGroup(group, callback) {
         return this.put('/groups', group, callback);
     }

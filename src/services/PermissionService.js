@@ -6,6 +6,10 @@ class PermissionService extends Service {
         return this.post('/permissions', perm, callback);
     }
 
+    findAll(callback) {
+        return this.get('/permissions').then(callback);
+    }
+
 }
 
 export default new PermissionService(0);

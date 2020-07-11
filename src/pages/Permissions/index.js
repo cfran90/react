@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import PermissionService from "../../services/PermissionService"
 import {Link, Redirect} from "react-router-dom";
-import UserService from "../../services/UserService";
 import {toast} from "react-toastify";
 
 export default class Permission extends Component {
@@ -24,7 +23,6 @@ export default class Permission extends Component {
             description: this.state.description,
             type: this.state.type
         }
-        console.log(JSON.stringify(permToSave));
         PermissionService.create(permToSave, () => {
             toast.success("Permissão cadastrada com sucesso!");
             this.setState({redirect: true});

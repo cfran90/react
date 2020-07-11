@@ -7,8 +7,8 @@ class UserService extends Service {
         return this.post('/users', user, callback);
     }
 
-    updateUser(user, callback) {
-        return this.put('/users', user, callback);
+    updateUser(userId, user, callback) {
+        return this.put(`/users/${userId}`, user, callback);
     }
 
     deleteUser(userId, callback) {

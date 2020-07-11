@@ -10,6 +10,7 @@ import Permissions from "../pages/Permissions";
 import FormUser from "../pages/Users/form";
 import ListUsers from '../pages/Users/list';
 import TestComponent from '../components/Datatable';
+import GroupPermissions from "../pages/GroupPermissions";
 
 export default function Routes() {
     return (
@@ -19,6 +20,7 @@ export default function Routes() {
             <PrivateRoute path="/logout" exact component={Logout}/>
             <PrivateRoute exact path="/permission/form" component={Permissions}/>
             <PrivateRoute exact path="/groups/form" component={Groups}/>
+            <PrivateRoute exact path="/permissions/form" component={GroupPermissions}/>
             <PrivateRoute path="/users/list" component={ListUsers}/>
             <PrivateRoute exact path="/users/form" component={FormUser}/>
             <PrivateRoute path="/users/form/:id" component={FormUser}/>
